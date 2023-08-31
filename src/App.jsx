@@ -6,6 +6,9 @@ import { Box } from "@mui/material";
 /* import HeaderConditional from "./components/HeaderConditional";
 import Conditional from "./components/Conditional";
 import { useState } from "react"; */
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   /* const [option, setOption] = useState(1); */
@@ -19,7 +22,9 @@ function App() {
           minHeight: "100px",
         }}
       ></Box>
-      <Routes />
+      <QueryClientProvider client={queryClient}>
+        <Routes />
+      </QueryClientProvider>
     </BrowserRouter>
   );
 }
